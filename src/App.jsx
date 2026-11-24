@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Gallery from './Gallery'
 import PhoneModal from './PhoneModal'
 import Countdown from './Countdown'
+import Picture from './Picture'
 
 const ArrowCircle = () => (
   <span className="cta-arrow" aria-hidden="true">
@@ -46,7 +47,7 @@ export default function App() {
           </div>
 
           <div className="logo-tab">
-            <img src="/opt/logo-tab.png" alt="Qir Guli City" width="360" height="283" />
+            <img src="/img/logo-tab.png" alt="Qir Guli City" width="360" height="283" />
           </div>
 
           <div className="chip chip-r reveal">
@@ -61,15 +62,13 @@ export default function App() {
           Boshlang‘ich <em>to‘lovsiz</em> <em>2 xonali</em> xonadon xarid qiling!
         </h1>
 
-        <div className="hero-img reveal" style={{ '--d': '140ms' }}>
-          <img
-            src="/opt/dom.webp"
-            srcSet="/opt/dom-sm.webp 640w, /opt/dom.webp 1199w"
-            sizes="(max-width: 640px) 100vw, 640px"
+        <div className="hero-img">
+          <Picture
+            name="dom"
             alt="Qir Guli City turar joy majmuasi"
-            width="1199"
-            height="1312"
-            fetchPriority="high"
+            sizes="(max-width: 560px) 100vw, 560px"
+            priority
+            fill
           />
         </div>
 

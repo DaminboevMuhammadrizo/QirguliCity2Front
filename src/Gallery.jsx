@@ -1,13 +1,14 @@
 import { useRef } from 'react'
+import Picture from './Picture'
 
 const IMAGES = [
-  { id: 1, w: 1400, h: 1050, alt: 'Favvora va bolalar o‘yingohi', caption: <>Hovlida <b>favvora va bolalar o‘yingohi</b> — farzandlaringiz uchun xavfsiz maskan</> },
-  { id: 6, w: 1400, h: 1050, alt: 'Oylik to‘lov 4–5 mlndan', caption: <><b>Oylik to‘lov 4–5 mlndan</b> to‘lab xonadon xarid qilish imkoniyati</> },
-  { id: 7, w: 1024, h: 1280, alt: 'ONIX avtomobilini yutib oling', caption: <>Katta aksiyada qatnashing va <b>yangi ONIX avtomobilini</b> yutib oling</> },
-  { id: 3, w: 1280, h: 960, alt: 'Zamonaviy fasad', caption: <>Kechqurun chiroyli yoritiladigan <b>zamonaviy binolar</b></> },
-  { id: 5, w: 1120, h: 1400, alt: 'Barchasi 1 km radiusda', caption: <>Maktab, bog‘cha, shifoxona, masjid va bank — <b>barchasi 1 km radiusda</b></> },
-  { id: 4, w: 1062, h: 1400, alt: '500+ dan ortiq parkovka', caption: <><b>500+ dan ortiq parkovka</b> — mashinangiz uchun joy muammo emas</> },
-  { id: 2, w: 1400, h: 1050, alt: 'Majmua maketi', caption: <>Qir Guli City’ning <b>tepadan to‘liq ko‘rinishi</b></> },
+  { n: 1, alt: 'Favvora va bolalar o‘yingohi', caption: <>Hovlida <b>favvora va bolalar o‘yingohi</b> — farzandlaringiz uchun xavfsiz maskan</> },
+  { n: 6, alt: 'Oylik to‘lov 4–5 mlndan', caption: <><b>Oylik to‘lov 4–5 mlndan</b> to‘lab xonadon xarid qilish imkoniyati</> },
+  { n: 7, alt: 'ONIX avtomobilini yutib oling', caption: <>Katta aksiyada qatnashing va <b>yangi ONIX avtomobilini</b> yutib oling</> },
+  { n: 3, alt: 'Zamonaviy fasad', caption: <>Kechqurun chiroyli yoritiladigan <b>zamonaviy binolar</b></> },
+  { n: 5, alt: 'Barchasi 1 km radiusda', caption: <>Maktab, bog‘cha, shifoxona, masjid va bank — <b>barchasi 1 km radiusda</b></> },
+  { n: 4, alt: '500+ dan ortiq parkovka', caption: <><b>500+ dan ortiq parkovka</b> — mashinangiz uchun joy muammo emas</> },
+  { n: 2, alt: 'Majmua maketi', caption: <>Qir Guli City’ning <b>tepadan to‘liq ko‘rinishi</b></> },
 ]
 
 // Barmoq shu masofadan ko'p siljisa — bu scroll, bosish emas
@@ -37,7 +38,7 @@ export default function Gallery({ onSelect }) {
       <div className="cards">
         {IMAGES.map((img) => (
           <button
-            key={img.id}
+            key={img.n}
             type="button"
             className="card reveal"
             onPointerDown={onPointerDown}
@@ -45,13 +46,10 @@ export default function Gallery({ onSelect }) {
             aria-label={`${img.alt} — ro‘yxatdan o‘tish`}
           >
             <span className="card-media">
-              <img
-                src={`/opt/g${img.id}.webp`}
+              <Picture
+                name={`g${img.n}`}
                 alt={img.alt}
-                width={img.w}
-                height={img.h}
-                loading="lazy"
-                decoding="async"
+                sizes="(max-width: 560px) calc(100vw - 60px), 500px"
               />
             </span>
             <span className="card-cap">{img.caption}</span>

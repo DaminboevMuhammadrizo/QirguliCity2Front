@@ -85,11 +85,16 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
     linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%);
   mask-composite: intersect;
 }
-.hero-img img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;
-  transform: scale(1.06); transition: transform 1.8s var(--ease);
-}
-.hero-img.in img { transform: scale(1); }
+.hero-img .pic { position: absolute; inset: 0; }
+.hero-img img { object-position: 50% 30%; transform: scale(1.06); transition: opacity .5s var(--ease), transform 1.8s var(--ease); }
+.hero-img .is-loaded img { transform: scale(1); }
+
+/* ---------- Picture (placeholder → rasm) ---------- */
+.pic { display: block; position: relative; overflow: hidden; background-size: cover; background-position: center; }
+.pic picture { display: contents; }
+.pic img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s var(--ease); }
+.pic.is-loaded img { opacity: 1; }
+
 
 .hero-cta { position: relative; z-index: 2; margin-top: -72px; display: flex; flex-direction: column; align-items: center; }
 
@@ -176,7 +181,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
   .card:hover img { transform: scale(1.04); }
 }
 .card-media { display: block; overflow: hidden; border-radius: 16px; background: #e6ece6; }
-.card-media img { width: 100%; height: auto; transition: transform .7s var(--ease); }
+.card-media img { transition: opacity .5s var(--ease), transform .7s var(--ease); }
 .card-cap { display: block; padding: 16px 8px 0; font-size: 17px; line-height: 1.45; color: var(--ink); text-wrap: balance; }
 .card-cap b { font-weight: 800; color: var(--green); }
 
