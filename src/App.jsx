@@ -62,14 +62,21 @@ export default function App() {
           Boshlang‘ich <em>to‘lovsiz</em> <em>2 xonali</em> xonadon xarid qiling!
         </h1>
 
-        <div className="hero-img">
-          <Picture
-            name="dom"
-            alt="Qir Guli City turar joy majmuasi"
-            sizes="(max-width: 560px) 100vw, 560px"
-            priority
-            fill
-          />
+        <div className="hero-wrap">
+          <div className="hero-img">
+            <Picture
+              name="dom"
+              alt="Qir Guli City turar joy majmuasi"
+              sizes="(max-width: 560px) 100vw, 560px"
+              priority
+              fill
+            />
+          </div>
+          <div className="gas-badge">
+            <span className="gas-pct">100%</span>
+            <span className="gas-name">tabiiy gaz</span>
+            <span className="gas-sub">bilan ta‘minlangan</span>
+          </div>
         </div>
 
         <div className="hero-cta">

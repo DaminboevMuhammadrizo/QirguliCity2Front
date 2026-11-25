@@ -85,7 +85,28 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
     linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%);
   mask-composite: intersect;
 }
+.hero-wrap { position: relative; }
 .hero-img .pic { position: absolute; inset: 0; }
+
+/* "100% tabiiy gaz" belgisi — rasmning chap pastida */
+.gas-badge {
+  position: absolute; left: 0; bottom: 92px; z-index: 1;
+  width: 43%; padding: 12px 14px 13px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  border-radius: 18px; color: #fff;
+  background: linear-gradient(160deg, rgba(6, 61, 34, .82), rgba(3, 30, 16, .78));
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 12px 26px -10px rgba(0, 0, 0, .55), inset 0 0 0 1px rgba(255, 214, 0, .25);
+  animation: badgeIn .9s var(--ease) .5s both;
+}
+@keyframes badgeIn { from { opacity: 0; transform: translateX(-24px) scale(.94); } }
+.gas-pct {
+  font-family: var(--display); font-weight: 700; line-height: .95;
+  font-size: clamp(42px, 13vw, 58px); letter-spacing: -.01em;
+  color: #ffd60a; text-shadow: 0 2px 12px rgba(255, 214, 10, .35);
+}
+.gas-name { margin-top: 2px; font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: clamp(17px, 5vw, 22px); letter-spacing: .03em; line-height: 1.1; }
+.gas-sub { font-size: clamp(11.5px, 3.3vw, 14px); font-weight: 600; color: rgba(255, 255, 255, .85); line-height: 1.25; }
 .hero-img img { object-position: 50% 30%; transform: scale(1.06); transition: opacity .5s var(--ease), transform 1.8s var(--ease); }
 .hero-img .is-loaded img { transform: scale(1); }
 
